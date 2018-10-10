@@ -1,11 +1,13 @@
 import './index.scss';
+import ReactDOM from 'react-dom';
+import DatabaseMap from './DatabaseMap/index';
 
 let queue = [];
 let data = null;
 
 const settings = {
-  'viz__id': (el) => {
-    // use data
+  'testDB': (el) => {
+    ReactDOM.render(<DatabaseMap data={data.map} />, el);
   }
 };
 
@@ -20,9 +22,6 @@ window.renderDataViz = function(el){
   let chart = settings[id];
   if(!chart) return;
 
-  if(data){
-    chart(el);
-  } else {
-    queue.push(() => chart(el));
-  }
+  chart(el);
+
 }
