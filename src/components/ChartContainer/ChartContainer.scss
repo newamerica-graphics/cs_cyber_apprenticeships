@@ -29,11 +29,23 @@
 
 .chart__figure {
   position: relative;
+  width: 100vw;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .chart__source {
   font-size: 0.75rem;
   color: #2c2f35;
+}
+
+.chart__map {
+  padding: 0 48px 0 0;
+}
+
+.chart__panel {
+
 }
 
 svg {

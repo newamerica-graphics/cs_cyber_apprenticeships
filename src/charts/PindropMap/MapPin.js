@@ -19,7 +19,6 @@ class MapPin extends React.Component {
   handleMouseLeave() {
     const isActive = false;
     this.setState({ isActive });
-    this.props.hideTooltip(isActive);
   }
 
   render() {
@@ -30,9 +29,9 @@ class MapPin extends React.Component {
         r="5"
         onMouseEnter={this.handleMouseEnter.bind(this)}
         onMouseLeave={this.handleMouseLeave.bind(this)}
-        fill="#2ebcb3"
+        fill={this.props.d["Registration"] ? "#25D7B0" : "#F5A623"}
         strokeWidth={this.state.isActive ? 2 : 1}
-        stroke="#ffffff"
+        stroke="#F9F6F6"
       />
     );
   }

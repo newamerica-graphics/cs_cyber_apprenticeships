@@ -27,10 +27,6 @@ class PindropMap extends React.Component {
     });
   }
 
-  hideTooltip(isActive) {
-    this.setState({ isActive });
-  }
-
   render() {
     const lon = this.props.lon || "lon";
     const lat = this.props.lat || "lat";
@@ -47,31 +43,40 @@ class PindropMap extends React.Component {
     const { projection, isActive, d, mousePos } = this.state;
     return (
       <ChartContainer title={title} subtitle={subtitle} source={source}>
-        <BaseMap
+        <div className="chart__map"><BaseMap
           geometry={geometry}
           width={width}
           height={height}
           projectionInit={this.projectionInit.bind(this)}
         >
-          {data.map((d, i) => (
-            <MapPin
-              x={projection([+d[lon], +d[lat]])[0]}
-              y={projection([+d[lon], +d[lat]])[1]}
+          {data.map((d, i) =>
+            {
+              return (
+                <MapPin
+                  x={projection([+d[lon], +d[lat]])[0]}
+                  y={projection([+d[lon], +d[lat]])[1]}
+                  d={d}
+                  key={i}
+                  showTooltip={this.showTooltip.bind(this)}
+                />
+          )})}
+        </BaseMap></div>
+        <div className="chart__panel">
+          {tooltipTemplate ? (
+            <Tooltip
               d={d}
-              key={i}
-              showTooltip={this.showTooltip.bind(this)}
-              hideTooltip={this.hideTooltip.bind(this)}
+              isActive={isActive}
+              tooltipTemplate={tooltipTemplate}
             />
-          ))}
-        </BaseMap>
-        {tooltipTemplate ? (
-          <Tooltip
-            d={d}
-            mousePos={mousePos}
-            isActive={isActive}
-            tooltipTemplate={tooltipTemplate}
-          />
-        ) : null}
+          ) : null}
+          {tooltipTemplate ? (
+            <Tooltip
+              d={d}
+              isActive={isActive}
+              tooltipTemplate={tooltipTemplate}
+            />
+          ) : null}
+        </div>
       </ChartContainer>
     );
   }

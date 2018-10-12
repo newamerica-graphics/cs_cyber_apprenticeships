@@ -12,9 +12,9 @@ class BaseMap extends React.Component {
     this.loadGeometry();
   }
 
-  /*   
+  /*
     Fetch topojson files based on the geometry prop, either "world" or "us"
-    Creates a projection that is fit to the size of the SVG, sends it back up to the parent component, 
+    Creates a projection that is fit to the size of the SVG, sends it back up to the parent component,
     and adds the path generator and feature collection from the topojson to state
   */
 
@@ -62,13 +62,13 @@ class BaseMap extends React.Component {
   render() {
     const { path, features } = this.state;
     return (
-      <svg viewBox={`0 0 ${this.props.width} ${this.props.height}`}>
+      <svg viewBox={`0 50 ${this.props.width} ${this.props.height}`}>
         <g className="geometry">
           {features.map((d, i) => (
             <path
               key={`path-${i}`}
               d={path(d)}
-              fill="#CBCBCD"
+              fill="#D8D8D8"
               stroke="#FFFFFF"
             />
           ))}
