@@ -1,16 +1,16 @@
 import React from "react";
 import ChartContainer from "../../components/ChartContainer";
 import BaseMap from "../../components/BaseMap";
-import Tooltip from "../../components/Tooltip";
 import MapPin from "./MapPin";
+import InfoPanel from "../../components/InfoPanel";
+import ListPanel from "../../components/ListPanel";
 
-class PindropMap extends React.Component {
+class CustomMap extends React.Component {
   constructor(props) {
     super(props);
     // set initial state to empty values, will update once the BaseMap component fetches topojson data
     this.state = {
       projection: () => [0, 0],
-      mousePos: [0, 0],
       d: this.props.data[0]
     };
   }
@@ -19,11 +19,9 @@ class PindropMap extends React.Component {
     this.setState({ projection });
   }
 
-  showTooltip(isActive, d, mousePos) {
+  updateInfoPanel(d) {
     this.setState({
-      isActive,
-      d,
-      mousePos
+      d
     });
   }
 
@@ -37,10 +35,9 @@ class PindropMap extends React.Component {
       source,
       geometry,
       width,
-      height,
-      tooltipTemplate
+      height
     } = this.props;
-    const { projection, isActive, d, mousePos } = this.state;
+    const { projection, d } = this.state;
     return (
       <ChartContainer title={title} subtitle={subtitle} source={source}>
         <div className="chart__map"><BaseMap
@@ -57,28 +54,21 @@ class PindropMap extends React.Component {
                   y={projection([+d[lon], +d[lat]])[1]}
                   d={d}
                   key={i}
-                  showTooltip={this.showTooltip.bind(this)}
+                  updateInfoPanel={this.updateInfoPanel.bind(this)}
                 />
           )})}
         </BaseMap></div>
         <div className="chart__panel">
-          {tooltipTemplate ? (
-            <Tooltip
+            <InfoPanel
               d={d}
-              isActive={isActive}
-              tooltipTemplate={tooltipTemplate}
             />
-          ) : null}
-          {tooltipTemplate ? (
-            <Tooltip
-              d={d}
-              isActive={isActive}
-              tooltipTemplate={tooltipTemplate}
+            <ListPanel
+              data={data}
+              updateInfoPanel={this.updateInfoPanel.bind(this)}
             />
-          ) : null}
         </div>
       </ChartContainer>
     );
   }
 }
-export default PindropMap;
+export default CustomMap;

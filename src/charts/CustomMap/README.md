@@ -1,9 +1,9 @@
-# Pindrop Map
+# Custom Map
 
 ### Usage
 
 ```js
-import PindropMap from "./charts/PindropMap";
+import CustomMap from "./charts/CustomMap";
 ```
 
 ### Properties

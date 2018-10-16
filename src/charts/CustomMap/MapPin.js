@@ -9,11 +9,10 @@ class MapPin extends React.Component {
   handleMouseEnter(e) {
     const isActive = true;
     const d = this.props.d;
-    const mousePos = [e.pageX, e.pageY];
     this.setState({
       isActive: true
     });
-    this.props.showTooltip(isActive, d, mousePos);
+    this.props.updateInfoPanel(d);
   }
 
   handleMouseLeave() {

@@ -1,11 +1,10 @@
 @import "../../scss/colors";
 @import "../../scss/box-shadow";
-.tooltip {
-  padding: 0px;
-  margin: 0 0 12px 0;
-  position: relative;
-  max-width: 400px;
+.list-panel {
   z-index: 1000;
+  margin: 0 0 12px 0;
+  padding: 0px;
+  max-width: 400px;
   background-color: white;
   border: 1px solid palette-get(na-black-10);
   @include standard-shadow;
@@ -16,8 +15,8 @@
     position: absolute;
     width: 12px;
     height: 12px;
-    top: 85px;
-    left: 22px;
+    left: -18px;
+    top: 4px;
     border-radius: 6px;
     &.register {
       background-color: #25D7B0;
@@ -25,6 +24,17 @@
     &.not-register {
       background-color: #F5A623;
     }
+  }
+  &__scrollbox {
+    padding: 10px 0 20px 0;
+  }
+  &__active-label {
+    margin: 0;
+    color: #8F8F8F;
+    padding: 5px 0 0 0;
+    line-height: 1;
+    font-family: circular;
+    font-size: 12px;
   }
   &__top {
     margin: 10px 0px 10px 40px;
@@ -90,8 +100,9 @@
       overflow-y: scroll;
     }
   }
-  &__title-container {
-    margin: 20px 0px 0px 40px;
+  &__list-item {
+    position: relative;
+    margin: 12px 0px 0px 40px;
     padding-bottom: 10px;
     &.no-content {
       padding-bottom: 0px;
@@ -156,7 +167,8 @@
       }
     }
   }
-  h1.tooltip__title {
+
+  h1.list-panel__title {
     font-size: 18px;
     line-height: 1.2;
     font-weight: 900;
@@ -167,15 +179,7 @@
     margin-bottom: 0;
   }
 
-  p.tooltip__chrome__label {
-    font-size: 18px;
-    font-family: circular;
-    font-weight: 600;
-    margin: 0;
-    padding: 15px 0px 15px 25px;
-  }
-
-  h2.tooltip__subheading {
+  h2.list-panel__subheading {
     font-size: 13px;
     line-height: 1.2;
     font-weight: 500;
@@ -189,13 +193,21 @@
     }
   }
 
+  p.list-panel__chrome__label {
+    font-size: 18px;
+    font-family: circular;
+    font-weight: 600;
+    margin: 0;
+    padding: 15px 0px 15px 25px;
+  }
+
   a {
     text-decoration: underline;
     color: palette-get(na-black);
     font-weight: 400;
   }
 
-  a.tooltip__link {
+  a.list-panel__link {
     text-decoration: none;
     font-weight: 200;
     font-size: 10px;
