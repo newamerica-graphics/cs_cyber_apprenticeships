@@ -5,6 +5,7 @@
   margin: 0 0 12px 0;
   padding: 0px;
   max-width: 400px;
+  max-height: 66vh;
   background-color: white;
   border: 1px solid palette-get(na-black-10);
   @include standard-shadow;
@@ -27,6 +28,8 @@
   }
   &__scrollbox {
     padding: 10px 0 20px 0;
+    overflow-y: scroll;
+    max-height: 40vh;
   }
   &__active-label {
     margin: 0;
@@ -212,5 +215,13 @@
     font-weight: 200;
     font-size: 10px;
     text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  a.list-panel__title-link {
+    font-weight: inherit;
+    text-decoration: none;
+    text-transform: none;
+    cursor: pointer;
   }
 }

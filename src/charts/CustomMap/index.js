@@ -11,7 +11,10 @@ class CustomMap extends React.Component {
     // set initial state to empty values, will update once the BaseMap component fetches topojson data
     this.state = {
       projection: () => [0, 0],
-      d: this.props.data[0]
+      d: this.props.data[0],
+      panelActive: false,
+      activeLat: 0,
+      activeLon: 0
     };
   }
 
@@ -19,9 +22,12 @@ class CustomMap extends React.Component {
     this.setState({ projection });
   }
 
-  updateInfoPanel(d) {
+  updateInfoPanel(d, activeLat, activeLon, panelActive) {
     this.setState({
-      d
+      d,
+      activeLat,
+      activeLon,
+      panelActive
     });
   }
 
@@ -40,6 +46,17 @@ class CustomMap extends React.Component {
     const { projection, d } = this.state;
     return (
       <ChartContainer title={title} subtitle={subtitle} source={source}>
+        <div className="chart__legend">
+          <p className="chart__legend__title">Map Legend</p>
+          <div className="chart__legend__item-container">
+            <div className="chart__legend__indicator register"></div>
+            <p className="chart__legend__item">Registered Apprenticeships</p>
+          </div>
+          <div className="chart__legend__item-container">
+            <div className="chart__legend__indicator not-register"></div>
+            <p className="chart__legend__item">Unregistered Apprencticeships</p>
+          </div>
+        </div>
         <div className="chart__map"><BaseMap
           geometry={geometry}
           width={width}
@@ -55,17 +72,23 @@ class CustomMap extends React.Component {
                   d={d}
                   key={i}
                   updateInfoPanel={this.updateInfoPanel.bind(this)}
+                  activeLat={this.state.activeLat}
+                  activeLon={this.state.activeLon}
                 />
           )})}
         </BaseMap></div>
         <div className="chart__panel">
+          {this.state.panelActive ?
             <InfoPanel
               d={d}
-            />
-            <ListPanel
-              data={data}
               updateInfoPanel={this.updateInfoPanel.bind(this)}
-            />
+            /> :
+            null
+          }
+          <ListPanel
+            data={data}
+            updateInfoPanel={this.updateInfoPanel.bind(this)}
+          />
         </div>
       </ChartContainer>
     );

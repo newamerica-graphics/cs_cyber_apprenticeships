@@ -1,3 +1,6 @@
+@import "../../scss/colors";
+@import "../../scss/box-shadow";
+
 .mw-850 {
   max-width: 850px;
   margin-left: auto;
@@ -44,8 +47,51 @@
   padding: 0 48px 0 0;
 }
 
-.chart__panel {
+.chart__legend {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  width: 220px;
+  padding: 10px 10px 15px 30px;
+  background-color: white;
+  border: 1px solid palette-get(na-black-10);
+  &__item-container {
+    position: relative;
+  }
+  &__title,
+  &__item {
+    margin: 0;
+    font-family: circular;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+  &__item {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  &__indicator {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: -16px;
+    top: 4px;
+    border-radius: 6px;
+    &.register {
+      background-color: #25D7B0;
+    }
+    &.not-register {
+      background-color: #F5A623;
+    }
+  }
+}
 
+.chart__panel {
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 
 svg {

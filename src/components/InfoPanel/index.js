@@ -5,9 +5,9 @@ class InfoPanel extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   render () {
-    const { isActive, d } = this.props;
+    const { d } = this.props;
     const EmailWrapper = (props) => (<a href={`mailto:${props.email}`}>{props.name}</a>);
     return (
       <div className="info-panel">
