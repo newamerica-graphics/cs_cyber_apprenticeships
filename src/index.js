@@ -13,7 +13,7 @@ const settings = {
         width={900}
         height={600}
         data={data.data}
-        title="Cybersecurity Apprenticeship Tracker"
+        title={data.meta[0].title}
       />,
       el
     );
