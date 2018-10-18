@@ -53,8 +53,8 @@ class CustomMap extends React.Component {
             <p className="chart__legend__item">Registered Apprenticeships</p>
           </div>
           <div className="chart__legend__item-container">
-            <div className="chart__legend__indicator not-register" />
-            <p className="chart__legend__item">Unregistered Apprencticeships</p>
+            <div className="chart__legend__indicator not-register"></div>
+            <p className="chart__legend__item">Not Registered</p>
           </div>
         </div>
         <div className="chart__map">
