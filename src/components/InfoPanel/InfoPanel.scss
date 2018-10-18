@@ -112,8 +112,7 @@
     border-color: #d5d5d5;
   }
   &__category {
-    margin-left: 40px;
-    width: 356px;
+    margin: 0 40px 0 40px;
     height: 150px;
     display: flex;
     flex-flow: column wrap;
@@ -127,8 +126,9 @@
     }
     &__list-item {
       display: block;
-      width: 167px;
-      padding-right: 22px;
+      overflow: hidden;
+      width: 50%;
+      padding-right: 1rem;
       float: left;
       clear: both;
       margin-bottom: 5px;
@@ -141,6 +141,7 @@
       &__value {
         font-size: 12px;
         margin-bottom: 0px;
+        padding-right: 1rem;
       }
       &__label {
         line-height: 1.5;

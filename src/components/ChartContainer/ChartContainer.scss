@@ -35,12 +35,13 @@
 .chart__figure {
   position: relative;
   width: 100vw;
-  height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 1rem;
-  @include breakpoint(large) {
+  @include breakpoint(xlarge) {
+    height: 100vh;
     flex-direction: row;
   }
 }
@@ -53,17 +54,17 @@
 .chart__map {
   padding: 0 2rem 1rem 0;
   width: 100%;
-  @include breakpoint(large) {
+  @include breakpoint(xlarge) {
     width: calc(100% / 1.5);
     padding: 0 2rem 0 0;
   }
 }
 
 .chart__panel {
-  overflow-y: scroll;
   width: 100%;
   max-height: 100vh;
-  @include breakpoint(large) {
+  margin: 0 1rem 0 0;
+  @include breakpoint(xlarge) {
     width: calc(100% / 3);
     display: flex;
     flex-direction: column;
@@ -72,7 +73,7 @@
 
 .chart__legend {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   top: 0rem;
   left: 50%;
   transform: translateX(-50%);
@@ -112,7 +113,7 @@
       background-color: #f5a623;
     }
   }
-  @include breakpoint(large) {
+  @include breakpoint(xlarge) {
     position: absolute;
     top: 1rem;
     left: 1rem;

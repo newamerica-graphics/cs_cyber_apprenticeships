@@ -13,7 +13,7 @@ const settings = {
         width={900}
         height={600}
         data={data.data}
-        title={data.meta[0].title}
+        // title={data.meta[0].title}
       />,
       el
     );
@@ -21,7 +21,7 @@ const settings = {
 };
 
 fetch(
-  "https://na-data-projects.s3.amazonaws.com/data/cs/apprenticeships_database.json"
+  "http://na-data-projects.s3.amazonaws.com/data/cs/apprenticeships_database.json"
 )
   .then(response => response.json())
   .then(_data => {
