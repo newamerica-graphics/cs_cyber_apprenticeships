@@ -21,7 +21,7 @@ const settings = {
 };
 
 fetch(
-  "http://na-data-projects.s3.amazonaws.com/data/cs/apprenticeships_database.json"
+  "https://na-data-projects.s3.amazonaws.com/data/cs/apprenticeships_database.json"
 )
   .then(response => response.json())
   .then(_data => {
