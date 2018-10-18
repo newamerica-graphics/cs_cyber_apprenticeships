@@ -2,12 +2,12 @@
 @import "../../scss/box-shadow";
 .list-panel {
   z-index: 1000;
-  margin: 0 0 12px 0;
+  margin: 0 0 1rem 0;
   padding: 0px;
-  max-width: 400px;
-  max-height: 66vh;
   background-color: white;
+  min-height: 16rem;
   border: 1px solid palette-get(na-black-10);
+  overflow: scroll;
   @include standard-shadow;
   &.hidden {
     visibility: hidden;
@@ -20,20 +20,20 @@
     top: 4px;
     border-radius: 6px;
     &.register {
-      background-color: #25D7B0;
+      background-color: #25d7b0;
     }
     &.not-register {
-      background-color: #F5A623;
+      background-color: #f5a623;
     }
   }
   &__scrollbox {
     padding: 10px 0 20px 0;
     overflow-y: scroll;
-    max-height: 40vh;
+    max-height: 100%;
   }
   &__active-label {
     margin: 0;
-    color: #8F8F8F;
+    color: #8f8f8f;
     padding: 5px 0 0 0;
     line-height: 1;
     font-family: circular;
@@ -125,6 +125,9 @@
     margin: 0px;
     background-color: #e6e6e6;
     border-color: #d5d5d5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
   &__category {
     margin-left: 40px;
@@ -170,7 +173,6 @@
       }
     }
   }
-
   h1.list-panel__title {
     font-size: 18px;
     line-height: 1.2;
@@ -181,7 +183,6 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-
   h2.list-panel__subheading {
     font-size: 13px;
     line-height: 1.2;
@@ -195,7 +196,6 @@
       padding-left: 15px;
     }
   }
-
   p.list-panel__chrome__label {
     font-size: 18px;
     font-family: circular;
@@ -203,13 +203,11 @@
     margin: 0;
     padding: 15px 0px 15px 25px;
   }
-
   a {
     text-decoration: underline;
     color: palette-get(na-black);
     font-weight: 400;
   }
-
   a.list-panel__link {
     text-decoration: none;
     font-weight: 200;
@@ -217,7 +215,6 @@
     text-transform: uppercase;
     cursor: pointer;
   }
-
   a.list-panel__title-link {
     font-weight: inherit;
     text-decoration: none;

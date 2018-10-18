@@ -49,7 +49,7 @@ class CustomMap extends React.Component {
         <div className="chart__legend">
           <p className="chart__legend__title">Map Legend</p>
           <div className="chart__legend__item-container">
-            <div className="chart__legend__indicator register"></div>
+            <div className="chart__legend__indicator register" />
             <p className="chart__legend__item">Registered Apprenticeships</p>
           </div>
           <div className="chart__legend__item-container">
@@ -57,14 +57,14 @@ class CustomMap extends React.Component {
             <p className="chart__legend__item">Not Registered</p>
           </div>
         </div>
-        <div className="chart__map"><BaseMap
-          geometry={geometry}
-          width={width}
-          height={height}
-          projectionInit={this.projectionInit.bind(this)}
-        >
-          {data.map((d, i) =>
-            {
+        <div className="chart__map">
+          <BaseMap
+            geometry={geometry}
+            width={width}
+            height={height}
+            projectionInit={this.projectionInit.bind(this)}
+          >
+            {data.map((d, i) => {
               return (
                 <MapPin
                   x={projection([+d[lon], +d[lat]])[0]}
@@ -75,16 +75,17 @@ class CustomMap extends React.Component {
                   activeLat={this.state.activeLat}
                   activeLon={this.state.activeLon}
                 />
-          )})}
-        </BaseMap></div>
+              );
+            })}
+          </BaseMap>
+        </div>
         <div className="chart__panel">
-          {this.state.panelActive ?
+          {this.state.panelActive ? (
             <InfoPanel
               d={d}
               updateInfoPanel={this.updateInfoPanel.bind(this)}
-            /> :
-            null
-          }
+            />
+          ) : null}
           <ListPanel
             data={data}
             updateInfoPanel={this.updateInfoPanel.bind(this)}
