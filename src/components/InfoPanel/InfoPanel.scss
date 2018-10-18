@@ -3,9 +3,8 @@
 .info-panel {
   z-index: 1000;
   position: relative;
-  margin: 0 0 12px 0;
+  margin: 0 0 1rem 0;
   padding: 0px;
-  max-width: 400px;
   background-color: white;
   border: 1px solid palette-get(na-black-10);
   @include standard-shadow;
@@ -20,10 +19,10 @@
     left: 22px;
     border-radius: 6px;
     &.register {
-      background-color: #25D7B0;
+      background-color: #25d7b0;
     }
     &.not-register {
-      background-color: #F5A623;
+      background-color: #f5a623;
     }
   }
   &__top {
@@ -156,7 +155,6 @@
       }
     }
   }
-
   h1.info-panel__title {
     font-size: 18px;
     line-height: 1.2;
@@ -167,7 +165,6 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-
   h2.info-panel__subheading {
     font-size: 13px;
     line-height: 1.2;
@@ -181,7 +178,6 @@
       padding-left: 15px;
     }
   }
-
   p.info-panel__chrome__label {
     font-size: 18px;
     font-family: circular;
@@ -189,13 +185,11 @@
     margin: 0;
     padding: 15px 0px 15px 25px;
   }
-
   a {
     text-decoration: underline;
     color: palette-get(na-black);
     font-weight: 400;
   }
-
   a.info-panel__link {
     text-decoration: none;
     font-weight: 200;

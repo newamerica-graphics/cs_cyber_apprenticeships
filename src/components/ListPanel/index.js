@@ -15,15 +15,15 @@ class ListPanel extends React.Component {
         key={i}
         updateInfoPanel={this.props.updateInfoPanel.bind(this)}
       />
-    ))
+    ));
     return (
-      <div className="list-panel">
+      <div className="list-panel" style={{ ...this.props.style }}>
         <div className="list-panel__chrome">
           <p className="list-panel__chrome__label">All Apprenticeships</p>
         </div>
         <div className="list-panel__scrollbox">{listItems}</div>
       </div>
-    )
+    );
   }
 }
 
