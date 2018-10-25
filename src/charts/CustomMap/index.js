@@ -36,7 +36,6 @@ class CustomMap extends React.Component {
     const lat = this.props.lat || "lat";
     const {
       data,
-      title,
       subtitle,
       source,
       geometry,
@@ -45,7 +44,7 @@ class CustomMap extends React.Component {
     } = this.props;
     const { projection, d } = this.state;
     return (
-      <ChartContainer title={title} subtitle={subtitle} source={source}>
+      <ChartContainer subtitle={subtitle} source={source}>
         <div className="chart__legend">
           <p className="chart__legend__title">Map Legend</p>
           <div className="chart__legend__item-container">

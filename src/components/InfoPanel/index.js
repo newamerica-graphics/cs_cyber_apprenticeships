@@ -5,7 +5,7 @@ class InfoPanel extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   render () {
     const { d } = this.props;
     const EmailWrapper = (props) => (<a href={`mailto:${props.email}`}>{props.name}</a>);
@@ -58,7 +58,7 @@ class InfoPanel extends React.Component {
             ))}
         </div>
         <div className="info-panel__link-container">
-          <a className="info-panel__link" href={d["link"]}>Program Website →</a>
+          {d["link"] ? (<a className="info-panel__link" href={d["link"]}>Program Website →</a>) : null}
         </div>
       </div>
     )
