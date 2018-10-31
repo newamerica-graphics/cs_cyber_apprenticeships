@@ -61,7 +61,8 @@
 }
 
 .chart__panel {
-  max-height: 100vh;
+  z-index: 0;
+  height: 100%;
   margin: 0 1rem 0 1rem;
   @include breakpoint(xlarge) {
     width: calc(100% / 3);
